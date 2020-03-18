@@ -1,0 +1,22 @@
+<div *ngFor="let pizza of pizzas | async">
+    <img src="../../../assets/pizza.jpg" width="200px">
+    <h3>Pizza ID: {{ pizza.id}} </h3>
+    <p>Size: {{pizza.size}}</p>
+
+    <button *ngIf="pizza.size==='small'"
+        (click)="updatePizza(pizza.id, 'large')">
+    Upgrade to large
+    </button>
+
+    <button *ngIf="pizza.size==='large'"
+        (click)="updatePizza(pizza.id, 'small')">
+    Downgrade to small
+    </button>
+
+    <button (click)="deletePizza(pizza.id)">
+    Delete to small
+    </button>
+    
+</div>
+
+<button (click)="createPizza()"></button>
